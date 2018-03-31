@@ -7,8 +7,8 @@ use Symfony\Component\Process\Process;
 
 class PhpMDProcessor extends AbstractPhpProcessor
 {
-    private const BIN = __DIR__ . '/../../../../vendor/bin/phpmd';
-    private const RULES_SET_FILE = __DIR__ . '/../../../../resources/phpmd/rulesset.xml';
+    private const BIN = __DIR__ . '/../../../../bin/phpmd';
+    private const RULES_SET_FILE = __DIR__ . '/../../resources/phpmd/rulesset.xml';
 
     public function process(string $file): void
     {
@@ -16,7 +16,7 @@ class PhpMDProcessor extends AbstractPhpProcessor
         $process->run();
 
         if (!$process->isSuccessful()) {
-            throw new ProcessorException($process->getOutput());
+            throw new ProcessorException($process->getErrorOutput());
         }
     }
 

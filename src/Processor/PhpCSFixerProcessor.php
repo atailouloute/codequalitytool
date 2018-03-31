@@ -7,7 +7,7 @@ use Symfony\Component\Process\Process;
 
 class PhpCSFixerProcessor extends AbstractPhpProcessor
 {
-    private const BIN = __DIR__ . '/../../../../bin/php-cs-fixer';
+    private const BIN = __DIR__ . '/../../bin/php-cs-fixer';
 
     public function process(string $file): void
     {
@@ -18,7 +18,7 @@ class PhpCSFixerProcessor extends AbstractPhpProcessor
             $process = new Process(sprintf('%s fix %s', self::BIN, $file));
             $process->run();
 
-            // exec('git add ' . $file);
+            exec('git add ' . $file);
 
             throw new ProcessorException('Some Coding Style violations are fixed, commit again.');
         }

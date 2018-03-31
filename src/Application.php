@@ -46,7 +46,7 @@ class Application extends \Symfony\Component\Console\Application
                 $io->writeln(' <info>✔</info>');
             } catch (\Throwable $e) {
                 $io->block(trim($e->getMessage()), null, 'fg=white;bg=red', ' ', true);
-                return;
+                exit(1);
             }
         }
 
@@ -55,11 +55,16 @@ class Application extends \Symfony\Component\Console\Application
 
     private function extractFiles()
     {
-        return [
-            //'composer.json',
-            'composer.lock',
-            'a.php',
-        ];
+        $output = array();
+        $rc = 0;
+        exec('git rev-parse --verify HEAD 2> /dev/null', $output, $rc);
+        $against = '4b825dc642cb6eb9a060e54bf8d69288fbee4904';
+        if ($rc == 0) {
+            $against = 'HEAD';
+        }
+        exec("git diff-index --cached --name-status $against | egrep '^(A|M)' | awk '{print $2;}'", $output);
+
+        return $output;
     }
 
     /**
