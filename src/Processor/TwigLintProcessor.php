@@ -8,7 +8,6 @@ class TwigLintProcessor extends AbstractProcessor
 {
     public function process(string $file): void
     {
-
     }
 
     public function supports(string $file): bool

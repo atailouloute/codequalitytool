@@ -9,9 +9,7 @@ class DebugCodeProcessor extends AbstractProcessor
     public function process(string $file): void
     {
         if (ExtensionHelper::isPhp($file)) {
-
         } elseif (ExtensionHelper::isJs($file)) {
-
         }
     }
 
