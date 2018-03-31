@@ -16,7 +16,7 @@ class PhpMDProcessor extends AbstractPhpProcessor
         $process->run();
 
         if (!$process->isSuccessful()) {
-            throw new ProcessorException($process->getErrorOutput());
+            throw new ProcessorException($process->getOutput());
         }
     }
 
