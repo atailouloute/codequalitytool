@@ -9,7 +9,7 @@ class ScriptHandler
     public static function updateHooks(Event $event)
     {
         $hookPath = __DIR__ . '/../../../../../.git/hooks/pre-commit';
-        $newHookPath = __DIR__ . '/../../pre-commit.php';
+        $newHookPath = __DIR__ . '/../../pre-commit';
 
         file_put_contents($hookPath, file_get_contents($newHookPath));
     }
