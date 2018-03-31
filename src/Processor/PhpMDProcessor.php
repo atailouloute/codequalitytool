@@ -7,7 +7,7 @@ use Symfony\Component\Process\Process;
 
 class PhpMDProcessor extends AbstractPhpProcessor
 {
-    private const BIN = __DIR__ . '/../../../../bin/phpmd';
+    private const BIN = __DIR__ . '/../../bin/phpmd';
     private const RULES_SET_FILE = __DIR__ . '/../../resources/phpmd/rulesset.xml';
 
     public function process(string $file): void
