@@ -2,12 +2,12 @@
 
 namespace AT\CodeQualityTool;
 
+use AT\CodeQualityTool\Processor\ComposerProcessor;
 use AT\CodeQualityTool\Processor\PhpCSFixerProcessor;
 use AT\CodeQualityTool\Processor\PhpCSProcessor;
 use AT\CodeQualityTool\Processor\PhpLintProcessor;
 use AT\CodeQualityTool\Processor\PhpMDProcessor;
 use AT\CodeQualityTool\Processor\ProcessorInterface;
-use AT\CodeQualityTool\Processor\ComposerProcessor;
 use AT\CodeQualityTool\Processor\TwigLintProcessor;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
