@@ -12,5 +12,10 @@
             "email": "ahmed.tailouloute@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "autoload" : {
+        "psr-4" : {
+            "AT\\CodeQualityTool\\" : "src/"
+        }
+    }
 }
