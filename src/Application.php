@@ -22,10 +22,14 @@ class Application extends \Symfony\Component\Console\Application
 
     public function doRun(InputInterface $input, OutputInterface $output)
     {
+        $files = $this->extractFiles();
+
+        if (empty($files) || (1 === count($files) && preg_match('/^[a-z0-9]{40}$/', $files[0]))) {
+            return;
+        }
+
         $io = new SymfonyStyle($input, $output);
         $io->title(sprintf('%s, v%s', $this->getName(), $this->getVersion()));
-
-        $files = $this->extractFiles();
 
         foreach ($this->getCheckers() as $checker) {
             $filesToProcess = array_filter($files, function ($file) use ($checker) {
@@ -59,9 +63,11 @@ class Application extends \Symfony\Component\Console\Application
         $rc = 0;
         exec('git rev-parse --verify HEAD 2> /dev/null', $output, $rc);
         $against = '4b825dc642cb6eb9a060e54bf8d69288fbee4904';
+
         if ($rc == 0) {
             $against = 'HEAD';
         }
+
         exec("git diff-index --cached --name-status $against | egrep '^(A|M)' | awk '{print $2;}'", $output);
 
         return $output;
