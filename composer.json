@@ -1,5 +1,5 @@
 {
-    "name": "at/codequalitytool",
+    "name": "atailouloute/codequalitytool",
     "description": "A simple code quality tool for PHP applications",
     "require-dev": {
         "phpmd/phpmd": "^2.6",
