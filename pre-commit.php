@@ -1,0 +1,6 @@
+#!/usr/bin/php
+<?php
+
+include __DIR__ . "/vendor/autoload.php";
+
+(new \AT\CodeQualityTool\Application())->run();

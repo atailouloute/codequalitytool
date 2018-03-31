@@ -1,0 +1,16 @@
+{
+    "name": "at/codequalitytool",
+    "description": "A simple code quality tool for PHP applications",
+    "require-dev": {
+        "phpmd/phpmd": "^2.6",
+        "symfony/console": "^3.0|^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ahmed TAILOULOUTE",
+            "email": "ahmed.tailouloute@gmail.com"
+        }
+    ],
+    "require": {}
+}
