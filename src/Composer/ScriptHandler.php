@@ -10,7 +10,10 @@ class ScriptHandler
     {
         $hookPath = __DIR__ . '/../../../../../.git/hooks/pre-commit';
         $newHookPath = __DIR__ . '/../../pre-commit';
-
+        
         file_put_contents($hookPath, file_get_contents($newHookPath));
+        
+        // Make the hook executable
+        @chmod($hookPath, 0744);
     }
 }
