@@ -11,7 +11,7 @@ class PhpCSProcessor extends AbstractPhpProcessor
 
     public function process(string $file): void
     {
-        $process = new Process(sprintf('%s --standard=PSR2 %s', self::BIN, $file));
+        $process = new Process(sprintf('%s --standard=PSR1,PSR2 %s', self::BIN, $file));
         $process->run();
 
         if (!$process->isSuccessful()) {
