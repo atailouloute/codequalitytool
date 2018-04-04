@@ -2,7 +2,6 @@
     "name": "atailouloute/codequalitytool",
     "description": "A simple code quality tool for PHP applications",
     "require-dev": {
-        "phpmd/phpmd": "^2.6",
         "symfony/console": "^3.0|^4.0"
     },
     "license": "MIT",

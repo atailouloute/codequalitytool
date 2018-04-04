@@ -3,6 +3,7 @@
 namespace AT\CodeQualityTool;
 
 use AT\CodeQualityTool\Processor\ComposerProcessor;
+use AT\CodeQualityTool\Processor\DebugCodeProcessor;
 use AT\CodeQualityTool\Processor\PhpCSFixerProcessor;
 use AT\CodeQualityTool\Processor\PhpCSProcessor;
 use AT\CodeQualityTool\Processor\PhpLintProcessor;
@@ -78,6 +79,7 @@ class Application extends \Symfony\Component\Console\Application
      */
     private function getCheckers(): \Generator
     {
+        yield new DebugCodeProcessor();
         yield new ComposerProcessor();
         yield new PhpLintProcessor();
         yield new PhpCSFixerProcessor();
