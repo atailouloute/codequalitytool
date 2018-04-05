@@ -18,7 +18,7 @@ class Application extends \Symfony\Component\Console\Application
 {
     public function __construct()
     {
-        parent::__construct('Code Quality Tool', '1.0');
+        parent::__construct('Code Quality Tool', '1.1');
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)
@@ -55,7 +55,7 @@ class Application extends \Symfony\Component\Console\Application
             }
         }
 
-        $io->success('Good Job dude!');
+        $io->success('Good Job!');
     }
 
     private function extractFiles()
