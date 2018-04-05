@@ -18,7 +18,7 @@ class Application extends \Symfony\Component\Console\Application
 {
     public function __construct()
     {
-        parent::__construct('Code Quality Tool', '1.1');
+        parent::__construct('Code Quality Tool', '1.2');
     }
 
     public function doRun(InputInterface $input, OutputInterface $output)
