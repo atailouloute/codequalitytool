@@ -2,6 +2,7 @@
 
 namespace AT\CodeQualityTool;
 
+use AT\CodeQualityTool\Exception\ProcessorException;
 use AT\CodeQualityTool\Processor\ComposerProcessor;
 use AT\CodeQualityTool\Processor\DebugCodeProcessor;
 use AT\CodeQualityTool\Processor\PhpCSFixerProcessor;
@@ -49,6 +50,13 @@ class Application extends \Symfony\Component\Console\Application
                 $checker->after();
 
                 $io->writeln(' <info>✔</info>');
+            } catch (ProcessorException $e) {
+                if ($e->isWarning()) {
+                    $io->block(trim($e->getMessage()), null, 'fg=white;bg=magenta', ' ', true);
+                } else {
+                    $io->block(trim($e->getMessage()), null, 'fg=white;bg=blue', ' ', true);
+                    exit(1);
+                }
             } catch (\Throwable $e) {
                 $io->block(trim($e->getMessage()), null, 'fg=white;bg=red', ' ', true);
                 exit(1);
