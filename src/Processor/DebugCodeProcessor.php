@@ -51,7 +51,7 @@ class DebugCodeProcessor extends AbstractProcessor
     {
         $extension = pathinfo($file, PATHINFO_EXTENSION);
 
-        return sprintf('/(?P<keyword>%s)/ix', implode(self::NOT_ALLOWED_KEYWORDS[$extension], '|'));
+        return sprintf('/[^a-zA-Z](?P<keyword>%s)\(/ix', implode(self::NOT_ALLOWED_KEYWORDS[$extension], '|'));
     }
 
     public function getTitle(): string
